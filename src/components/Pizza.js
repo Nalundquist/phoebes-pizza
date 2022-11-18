@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function Pizza(){
+function Pizza(props){
 	
 	const pizzaStyle = {
 		margin: "3px",
@@ -13,7 +13,12 @@ function Pizza(){
 	return (
 		<React.Fragment>
 			<div style={pizzaStyle}>
-				<p>I'm one pizza</p>	
+				<h4>{props.size}</h4>
+				<ul>
+					{props.toppings.map((topping) =>
+						<li>{topping}</li>
+					)}
+				</ul>	
 			</div>
 		</React.Fragment>
 	)
