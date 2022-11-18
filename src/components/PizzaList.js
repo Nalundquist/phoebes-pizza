@@ -21,6 +21,7 @@ function PizzaList(props){
 						id={pizza.id}
 						key={pizza.id}/>
 				)}
+				<button onClick={props.createNewPizza}>Add New Pizza</button>
 			</div>
 		</React.Fragment>
 	)

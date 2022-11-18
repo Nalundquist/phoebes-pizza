@@ -29,8 +29,8 @@ function FormTemplate(props){
 						<option value="Pineapple">Pineapple</option>
 						<option value="Gruyere">Gruyere</option>
 					</select>
+					<button type="submit">{props.submitButtonText}</button>
 				</form>
-				<button type="submit">{props.submitButtonText}</button>
 			</div>
 		</React.Fragment>
 	)

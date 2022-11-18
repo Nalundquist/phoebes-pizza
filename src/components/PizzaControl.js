@@ -31,6 +31,7 @@ class PizzaControl extends React.Component{
 	handleNewPizza = (newPizza) => {
 		const newPizzaList = this.state.masterPizzaList.concat(newPizza);
 		this.setState({masterPizzaList: newPizzaList, createPizza: false});
+		console.log(this.state.masterPizzaList)
 		if (newPizza.size === "small"){
 			this.setState(prevState => ({
 				dough: prevState.dough - 2
@@ -52,24 +53,30 @@ class PizzaControl extends React.Component{
 
 	render(){
 
+		let visibleState = null;
 		const bodyStyle = {
 			margin: "10px",
 			padding: "5px",
 			display: "flex",
 			flexDirection: "row"
 		}
+
+		if (this.state.createPizza){
+			visibleState = 
+				<div style={bodyStyle}>
+					<NewPizza onNewPizzaCreation={this.handleNewPizza} />
+				</div>
+		} else {
+			visibleState = 
+				<div style={bodyStyle}>
+					<PizzaList pizzaList={this.state.masterPizzaList} createNewPizza={this.handlePizzaForm}/>
+					<Dough buyMoreDough={this.buyDough} doughAmount={this.state.dough}/>
+				</div>
+		}
+
 		return (
 			<React.Fragment>
-				if (this.state.createPizza){
-					<div style={bodyStyle}>
-						<NewPizza onNewPizzaCreation={this.handleNewPizza}/>
-					</div>
-				} else {
-					<div style={bodyStyle}>
-						<PizzaList pizzaList={this.state.masterPizzaList}/>
-						<Dough buyMoreDough={this.buyDough} doughAmount={this.state.dough}/>
-					</div>
-				}
+				{visibleState}
 			</React.Fragment>
 		)
 	}

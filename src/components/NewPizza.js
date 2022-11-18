@@ -16,7 +16,7 @@ function NewPizza(props){
 	return(
 		<FormTemplate 
 		formSubmissionHandler={handleNewPizzaFormSubmission}
-		pizzaButtonText="Order Pizza" />
+		submitButtonText="Order Pizza" />
 	)
 }
 

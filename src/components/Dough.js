@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function Dough(){
+function Dough(props){
 
 	const doughStyle = {
 		border: "3px solid grey",
@@ -14,10 +14,16 @@ function Dough(){
 	return(
 		<React.Fragment>
 			<div style={doughStyle}>
-				<p>Dough here</p>
+				<p>Dough: {props.doughAmount}</p>
+				<button onClick={props.buyMoreDough}>Buy More Dough</button>
 			</div>
 		</React.Fragment>
 	)
+}
+
+Dough.propTypes = {
+	doughAmount: PropTypes.number,
+	buyMoreDough: PropTypes.func
 }
 
 export default Dough;
