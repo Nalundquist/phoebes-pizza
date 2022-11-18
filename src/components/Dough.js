@@ -11,10 +11,17 @@ function Dough(props){
 		width: "35%"
 	}
 
+	const doughWarning = null;
+
+	if (props.needDough){
+		doughWarning = <p color="red"><strong>Please buy more dough, we do not have enough!</strong></p>
+	}
+
 	return(
 		<React.Fragment>
 			<div style={doughStyle}>
 				<p>Dough: {props.doughAmount}</p>
+				{doughWarning}
 				<button onClick={props.buyMoreDough}>Buy More Dough</button>
 			</div>
 		</React.Fragment>
@@ -22,6 +29,7 @@ function Dough(props){
 }
 
 Dough.propTypes = {
+	needDough: PropTypes.bool,
 	doughAmount: PropTypes.number,
 	buyMoreDough: PropTypes.func
 }
