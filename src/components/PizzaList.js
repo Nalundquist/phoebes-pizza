@@ -16,6 +16,7 @@ function PizzaList(props){
 			<div style={listStyle}>
 				{props.pizzaList.map((pizza) => 
 					<Pizza 
+						onClickDetail={props.showPizzaDetail}
 						size={pizza.size}
 						toppings={pizza.toppings}
 						id={pizza.id}
@@ -28,7 +29,8 @@ function PizzaList(props){
 }
 
 PizzaList.propTypes = {
-	pizzaList: PropTypes.array
+	pizzaList: PropTypes.array,
+	showPizzaDetail: PropTypes.func
 }
 
 export default PizzaList;

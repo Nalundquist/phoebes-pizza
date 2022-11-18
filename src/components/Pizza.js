@@ -13,7 +13,7 @@ function Pizza(props){
 
 	return (
 		<React.Fragment>
-			<div style={pizzaStyle}>
+			<div onClick={() => props.onClickDetail(props.id)} style={pizzaStyle}>
 				<h4>{props.size}</h4>
 				<p>{props.toppings}</p>
 			</div>
@@ -23,7 +23,8 @@ function Pizza(props){
 
 Pizza.propTypes = {
 	size: PropTypes.string.isRequired,
-	toppings: PropTypes.string.isRequired
+	toppings: PropTypes.string.isRequired,
+	onClickDetail: PropTypes.func
 }
 
 export default Pizza;
