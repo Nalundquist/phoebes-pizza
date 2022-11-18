@@ -11,7 +11,7 @@ function Dough(props){
 		width: "35%"
 	}
 
-	const doughWarning = null;
+	let doughWarning = null;
 
 	if (props.needDough){
 		doughWarning = <p color="red"><strong>Please buy more dough, we do not have enough!</strong></p>

@@ -32,7 +32,7 @@ class PizzaControl extends React.Component{
 		}))
 	}
 	
-	handleNewPizza = (newPizza) => {
+	doughToSize = (newPizza) => {
 		if (newPizza.size === "Small"){
 			this.setState({doughModifier: 2})
 		} else if (newPizza.size === "Medium"){
@@ -42,9 +42,17 @@ class PizzaControl extends React.Component{
 		} else {
 			this.setState({doughModifier: 5})
 		}
+	}
+	handleNewPizza = (newPizza) => {
+		this.doughToSize(newPizza);
+		const currentDough = (prevState => ({dough: prevState.dough}))
+		const currentDoughMod = (prevState => ({doughModifier: prevState.doughModifier})) 
+		console.log("dough: " + currentDough + ", dough mod: " + currentDoughMod)
 		if (this.state.dough - this.state.doughModifier < 0){
 			this.setState({notEnoughDough: true, doughModifier: 0, createPizza: false})
+			console.log("in insufficient dough path")
 		} else {
+			console.log("in sufficient dough path")
 			const newPizzaList = this.state.masterPizzaList.concat(newPizza);
 			this.setState({masterPizzaList: newPizzaList, createPizza: false});
 			this.setState(prevState =>({
@@ -106,10 +114,13 @@ class PizzaControl extends React.Component{
 			visibleState = 
 				<div style={bodyStyle}>
 					<PizzaList 
-					pizzaList={this.state.masterPizzaList} 
-					createNewPizza={this.handlePizzaForm}
-					showPizzaDetail={this.handlePizzaDetail}/>
-					<Dough needDough={this.state.notEnoughDough} buyMoreDough={this.buyDough} doughAmount={this.state.dough}/>
+						pizzaList={this.state.masterPizzaList} 
+						createNewPizza={this.handlePizzaForm}
+						showPizzaDetail={this.handlePizzaDetail} />
+					<Dough 
+						needDough={this.state.notEnoughDough} 
+						buyMoreDough={this.buyDough} 
+						doughAmount={this.state.dough} />
 				</div>
 		}
 
