@@ -27,13 +27,13 @@ function Header(){
 		<React.Fragment>
 			<div style={headStyle}>
 				<div style={imgBox}>
-					<img src={PizzaImg} alt="Image of Pizza" width="90%" />
+					<img src={PizzaImg} alt="Pizza" width="90%" />
 				</div>
 				<div style={titleBox}>
 					<h2>Phoebe's Pizza</h2>
 				</div>
 				<div style={imgBox}>
-					<img src={PizzaImg} alt="Image of Pizza" width="90%" />
+					<img src={PizzaImg} alt="Pizza" width="90%" />
 				</div>
 			</div>
 		</React.Fragment>

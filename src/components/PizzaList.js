@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Pizza from "./Pizza";
 
-function PizzaList(){
+function PizzaList(props){
 
 	const listStyle = {
 		width: "65%",
@@ -13,11 +14,20 @@ function PizzaList(){
 	return(
 		<React.Fragment>
 			<div style={listStyle}>
-				<Pizza />
-				<p>list of pizzas</p>
+				{props.pizzaList.map((pizza) => 
+					<Pizza 
+						size={pizza.size}
+						toppings={pizza.toppings}
+						id={pizza.id}
+						key={pizza.id}/>
+				)}
 			</div>
 		</React.Fragment>
 	)
+}
+
+PizzaList.propTypes = {
+	pizzaList: PropTypes.array
 }
 
 export default PizzaList;

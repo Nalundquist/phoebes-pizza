@@ -1,16 +1,32 @@
 import React from "react";
-import PropTypes from "prop-types";
 import PizzaList from "./PizzaList";
 import Dough from "./Dough";
 
 class PizzaControl extends React.Component{
 
-	// constructor(props){
-	// 	super(props);
-	// 	this.state = {
-	// 		dough: 0,
-	// 	}
-	// }
+	constructor(props){
+		super(props);
+		this.state = {
+			dough: 0,
+			masterPizzaList: [],
+			currentPizza: null,
+			editPizza: false,
+			createPizza: false
+		}
+	}
+
+	buyDough = () => {
+		this.setState(prevState => ({
+			dough: prevState.dough + 30
+		}))
+	}
+
+	handleNewPizza = () => {
+		this.setState(prevState => ({
+			createPizza: !prevState.createPizza
+		}))
+	}
+
 	render(){
 
 		const bodyStyle = {
@@ -22,12 +38,15 @@ class PizzaControl extends React.Component{
 		return (
 			<React.Fragment>
 				<div style={bodyStyle}>
-					<PizzaList />
-					<Dough />
+					if ()
+					<PizzaList pizzaList={this.state.masterPizzaList}/>
+					<Dough buyMoreDough={this.buyDough} doughAmount={this.state.dough}/>
 				</div>
 			</React.Fragment>
 		)
 	}
 }
+
+
 
 export default PizzaControl;
