@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Topping from "./Topping";
+// import Topping from "./Topping";
 
 function Pizza(props){
 	
@@ -15,19 +15,15 @@ function Pizza(props){
 		<React.Fragment>
 			<div style={pizzaStyle}>
 				<h4>{props.size}</h4>
-				<ul>
-					{props.toppings.map((topping) =>
-						<Topping thisTopping={topping} />
-					)}
-				</ul>
+				<p>{props.toppings}</p>
 			</div>
 		</React.Fragment>
 	)
 }
 
 Pizza.propTypes = {
-	size: PropTypes.string,
-	toppings: PropTypes.array
+	size: PropTypes.string.isRequired,
+	toppings: PropTypes.string.isRequired
 }
 
 export default Pizza;

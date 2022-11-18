@@ -1,15 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
+// import React from "react";
+// import PropTypes from "prop-types";
 
-function Toppings(props){
+// function Topping(props){
 
-	return(
-		<li>{props.thisTopping}</li>
-	)
-}
+// 	return(
+// 		<React.Fragment>
+// 			<p>{props.topping}</p>
+// 		</React.Fragment>
+// 	);
+// }
 
-Toppings.propTypes = {
-	topping: PropTypes.string
-}
+// Topping.propTypes = {
+// 	topping: PropTypes.string
+// }
 
-export default Toppings;
+// export default Topping;

@@ -14,21 +14,14 @@ function FormTemplate(props){
 		<React.Fragment>
 			<div style={formStyle}>
 				<form onSubmit={props.formSubmissionHandler}>
-					<select name='size'>
-						<option value="small">Small</option>
-						<option value="medium">Medium</option>
-						<option value="large">Large</option>
-						<option value="huge">Huge</option>
-					</select>
-					<select name='toppings' multiple>
-						<option value="Extra Cheese">Extra Cheese</option>
-						<option value="Pepperoni">Pepperoni</option>
-						<option value="Mushroom">Mushroom</option>
-						<option value="Sausage">Sausage</option>
-						<option value="Tomato">Tomato</option>
-						<option value="Pineapple">Pineapple</option>
-						<option value="Gruyere">Gruyere</option>
-					</select>
+					<input
+						type="text"
+						name="size"
+						placeholder="Size"/>
+					<input
+						type="text"
+						name="toppings"
+						placeholder="Toppings"/>
 					<button type="submit">{props.submitButtonText}</button>
 				</form>
 			</div>
