@@ -34,32 +34,43 @@ class PizzaControl extends React.Component{
 	
 	doughToSize = (newPizza) => {
 		if (newPizza.size === "Small"){
-			this.setState({doughModifier: 2})
+			if (this.state.dough - 2 < 0){
+				this.setState({notEnoughDough: true, doughModifier: 0, createPizza: false})
+			} else {
+				this.setState({doughModifier: 2})
+				this.handleNewPizza(newPizza)
+			}
 		} else if (newPizza.size === "Medium"){
-			this.setState({doughModifier: 3})
+			if (this.state.dough - 3 < 0){
+				this.setState({notEnoughDough: true, doughModifier: 0, createPizza: false})
+			} else {
+				this.setState({doughModifier: 3})
+				this.handleNewPizza(newPizza)
+			}
 		} else if (newPizza.size === "Large"){
-			this.setState({doughModifier: 4})
+			if (this.state.dough - 4 < 0){
+				this.setState({notEnoughDough: true, doughModifier: 0, createPizza: false})
+			} else {
+				this.setState({doughModifier: 4})
+				this.handleNewPizza(newPizza)
+			}
 		} else {
-			this.setState({doughModifier: 5})
+			if (this.state.dough - 5 < 0){
+				this.setState({notEnoughDough: true, doughModifier: 0, createPizza: false})
+			} else {
+				this.setState({doughModifier: 5})
+				this.handleNewPizza(newPizza)
+			}
 		}
 	}
+
 	handleNewPizza = (newPizza) => {
-		this.doughToSize(newPizza);
-		const currentDough = (prevState => ({dough: prevState.dough}))
-		const currentDoughMod = (prevState => ({doughModifier: prevState.doughModifier})) 
-		console.log("dough: " + currentDough + ", dough mod: " + currentDoughMod)
-		if (this.state.dough - this.state.doughModifier < 0){
-			this.setState({notEnoughDough: true, doughModifier: 0, createPizza: false})
-			console.log("in insufficient dough path")
-		} else {
-			console.log("in sufficient dough path")
 			const newPizzaList = this.state.masterPizzaList.concat(newPizza);
 			this.setState({masterPizzaList: newPizzaList, createPizza: false});
 			this.setState(prevState =>({
 				dough: prevState.dough - prevState.doughModifier
 			}))
-			this.setState({doughModifier: 0})
-		}
+			this.setState({doughModifier: 0, notEnoughDough: false})
 	}
 
 	handleEditForm = () => {
@@ -96,7 +107,7 @@ class PizzaControl extends React.Component{
 		if (this.state.createPizza){
 			visibleState = 
 				<div style={bodyStyle}>
-					<NewPizza onNewPizzaCreation={this.handleNewPizza} />
+					<NewPizza onNewPizzaCreation={this.doughToSize} />
 				</div>
 		} else if (this.state.currentPizza !== null){
 			if (this.state.editPizza){

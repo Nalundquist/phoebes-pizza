@@ -14,7 +14,7 @@ function Dough(props){
 	let doughWarning = null;
 
 	if (props.needDough){
-		doughWarning = <p color="red"><strong>Please buy more dough, we do not have enough!</strong></p>
+		doughWarning = <p style={{color: "red"}}><strong>Please buy more dough, we do not have enough!</strong></p>
 	}
 
 	return(
