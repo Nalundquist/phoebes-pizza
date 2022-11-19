@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 function FormTemplate(props){
 
 	const formStyle = {
+		width: "75%",
+		height: "45vh",
 		border: "3px solid grey",
 		borderRadius: "8px",
 		margin: "5px",

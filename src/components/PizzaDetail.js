@@ -6,7 +6,8 @@ function PizzaDetail(props){
 		border: "3px solid grey",
 		borderRadius: "8px",
 		padding: "10px",
-		width: "35%"
+		width: "35%",
+		height: "30vh"
 	}
 	return (
 		<React.Fragment>

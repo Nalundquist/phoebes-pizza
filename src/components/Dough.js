@@ -8,7 +8,8 @@ function Dough(props){
 		borderRadius: "8px",
 		margin: "5px",
 		padding: "5px",
-		width: "35%"
+		width: "35%",
+		height: "40vh"
 	}
 
 	let doughWarning = null;

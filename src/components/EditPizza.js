@@ -3,13 +3,6 @@ import PropTypes from "prop-types";
 import FormTemplate from "./FormTemplate";
 
 function EditPizza(props){
-	const editStyle = {
-		margin: "10px",
-		padding: "6px",
-		border: "3px solid grey",
-		borderRadius: "8px",
-		width: "75%"
-	}
 
 	function editPizzaFormSubmit(event){
 		event.preventDefault();
@@ -22,11 +15,9 @@ function EditPizza(props){
 
 	return (
 		<React.Fragment>
-			<div style={editStyle}>
-				<FormTemplate
-					formSubmissionHandler={editPizzaFormSubmit}
-					submitButtonText="Edit Pizza"/>
-			</div>
+			<FormTemplate
+				formSubmissionHandler={editPizzaFormSubmit}
+				submitButtonText="Edit Pizza"/>
 		</React.Fragment>
 	)
 }

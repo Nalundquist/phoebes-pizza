@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import Topping from "./Topping";
 
 function Pizza(props){
 	
@@ -8,7 +7,7 @@ function Pizza(props){
 		margin: "3px",
 		marginBottom: "3px",
 		borderBottom: "1px solid grey",
-		padding: "4px"
+		padding: "4px",
 	}
 
 	return (

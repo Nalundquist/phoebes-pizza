@@ -6,6 +6,7 @@ function PizzaList(props){
 
 	const listStyle = {
 		width: "65%",
+		minHeight: "40vh",
 		margin: "6px",
 		padding: "5px",
 		border: "3px solid grey",
